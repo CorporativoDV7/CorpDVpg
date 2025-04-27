@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <title>Garantía Royal Prestige</title>
+  <style>
+
+body {
+
+    
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      color: #333;
+      display: flex;
+    }
+
+    .sidebar {
+      width: 250px;
+      background-color: #2a7abc;
+      color: white;
+      padding: 10px;
+      position: fixed;
+      height: 100vh;
+      overflow-y: auto;
+    }
+
+    .sidebar a {
+      display: block;
+      color: white;
+      text-decoration: none;
+      padding: 28px 0;
+      transition: 0.3s;
+      cursor: pointer;
+    }
+
+    .sidebar a:hover {
+      background-color: #003366;
+    }
+    h1 {
+      text-align: center;
+      color: #004b87;
+    }
+
+   
+.section {
+  display: none; 
+  background-color: #fff;
+  padding: 50px;
+  margin-bottom: 40px;
+  border-radius: 12px;
+  border: 2px solid #004b87;
+  box-shadow: 0 25px 40px rgba(0, 0, 0, 0.1);
+  position: relative;
+  transform: scale(1); 
+  transition: all 0.5s ease-out;
+  opacity: 0.95;
+  z-index: 1;
+}
+
+.section h2 {
+  font-size: 32px;
+  font-weight: 700;
+  color: #fff;
+  text-align: center;
+  padding: 25px;
+  background: linear-gradient(135deg, #004b87, #006fa6, #00a0ff);
+  border-radius: 8px;
+  position: relative;
+  z-index: 1;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+  transition: all 0.4s ease-in-out;
+}
+
+.section h2::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 0;
+  height: 4px;
+  background-color: #fff;
+  transition: width 0.4s ease;
+}
+
+
+.section h2:hover {
+  background: linear-gradient(135deg, #00a0ff, #006fa6, #004b87);
+  transform: scale(1.05);
+  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.section h2:hover::after {
+  width: 100%;
+}
+
+.section p {
+  font-size: 18px;
+  line-height: 1.8;
+  color: #333;
+  text-align: justify;
+  margin-top: 20px;
+  padding-left: 25px;
+  position: relative;
+  z-index: 1;
+  transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+
+.section p::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 6px;
+  height: 100%;
+  background-color: #004b87;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  opacity: 0.6;
+}
+
+.section p:hover {
+  color: #004b87;
+  transform: translateX(10px);
+}
+
+.section:hover {
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3); 
+  opacity: 1;
+}
+
+.section:before {
+  content: '';
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  width: calc(100% + 10px);
+  height: calc(100% + 10px);
+  border: 2px solid #00a0ff;
+  border-radius: 12px;
+  opacity: 0;
+  animation: borderAnimation 1.2s ease-in-out infinite alternate;
+  z-index: 0;
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.section {
+  animation: fadeInUp 1s ease-out;
+}
+
+
+.home-icon:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+.title::after {
+    content: "";
+    position: absolute;
+    width: 80%;
+    height: 5px;
+    background-color: #276aa5;
+    bottom: -8px;
+    left: 10%;
+    border-radius: 5px;
+    animation: underline 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes underline {
+    0% { width: 3%; }
+    100% { width: 80%; }
+}
+
+.title span {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInLetter 1s ease-out forwards;
+}
+
+.title span:nth-child(n) { animation-delay: calc(0.1s * var(--i)); }
+
+@keyframes fadeInLetter {
+    0% { opacity: 0; transform: translateY(30px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+.header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    background: #fff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    width: 60%;
+    max-width: 700px;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%) translateX(2cm); 
+    z-index: 1000;
+    height: 80px;
+    border-radius: 12px;
+}
+
+.logo {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.title {
+    flex: 1;
+    text-align: center;
+    margin: 0;
+    font-size: 28px;
+    white-space: nowrap;
+}
+
+.home-icon {
+    font-size: 28px;
+    color: #1E88E5;
+    background: white;
+    padding: 10px 12px;
+    border-radius: 50%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    text-decoration: none;
+    margin-right: 20px;
+}
+
+.content {
+    margin-left: 270px;
+    padding: 20px;
+    width: 100%;
+    margin-top: 120px; 
+}
+    
+  </style>
+</head>
+<body>
+
+    <div class="header-container">
+        <img src="cdv.jpg" alt="Logo" class="logo">
+        <h1 class="title">
+            <span style="--i:1">G</span><span style="--i:2">a</span><span style="--i:3">r</span><span style="--i:4">a</span><span style="--i:5">n</span><span style="--i:6">t</span><span style="--i:7">í</span><span style="--i:8">a</span>
+            <span> </span>
+            <span style="--i:9">R</span><span style="--i:10">o</span><span style="--i:11">y</span><span style="--i:12">a</span><span style="--i:13">l</span>
+            <span> </span>
+            <span style="--i:14">P</span><span style="--i:15">r</span><span style="--i:16">e</span><span style="--i:17">s</span><span style="--i:18">t</span><span style="--i:19">i</span><span style="--i:20">g</span><span style="--i:21">e</span><span style="--i:22">®</span>
+        </h1>
+        <a href="index.html" class="home-icon">
+            <i class="fas fa-home"></i>
+        </a>
+    </div>
+    
+
+  <div class="sidebar">
+    <h2>Índice</h2>
+    <a onclick="showSection('garantia-limitada')">Garantía Limitada</a>
+    <a onclick="showSection('cocina')">Sistemas de Cocina y Piezas Accesorias</a>
+    <a onclick="showSection('aros')">Aros Silicromáticos</a>
+    <a onclick="showSection('electrico')">Ollas y Sartenes Eléctricos</a>
+    <a onclick="showSection('deluxe')">Deluxe Easy Release</a>
+    <a onclick="showSection('smart-temp')">Smart Temp Surface Thermometer</a>
+    <a onclick="showSection('precision-cook')">Precision Cook Parrilla de Inducción</a>
+    <a onclick="showSection('olla-presion')">Olla de Presión y Piezas Accesorias</a>
+    <a onclick="showSection('cuchillos')">Cuchillos, Afilador de Cuchillos, Bloque de Cuchillos</a>
+    <a onclick="showSection('bambu')">Productos de Bambú</a>
+    <a onclick="showSection('power-blender')">Power Blender MAX</a>
+    <a onclick="showSection('power-blender-go')">Power Blender Go Plus</a>
+    <a onclick="showSection('fresh-max')">Fresh MAX bomba de vacío</a>
+    <a onclick="showSection('barista')">Barista</a>
+    <a onclick="showSection('baristart')">BaristArt Kit</a>
+    <a onclick="showSection('expertea')">ExperTea</a>
+    <a onclick="showSection('cubiertos')">Cubiertos</a>
+    <a onclick="showSection('vasos')">Vasos, Copas y Jarras</a>
+    <a onclick="showSection('vajillas')">Vajillas</a>
+    <a onclick="showSection('tratamiento-agua')">Sistemas de Tratamiento de Agua</a>
+    <a onclick="showSection('extractor-jugos')">Extractor de Jugos</a>
+    <a onclick="showSection('exprimidor-jugos')">Exprimidor de Jugos</a>
+    <a onclick="showSection('hornear')">Juego para Hornear</a>
+    <a onclick="showSection('plancha')">Plancha Doble de Porcelana</a>
+    <a onclick="showSection('utensilios')">Juego de Utensilios de Cocina</a>
+    <a onclick="showSection('filtracion-aire')">Sistemas de Filtración de Aire</a>
+    <a onclick="showSection('redi-temp')">Redi-Temp E-System</a>
+    <a onclick="showSection('accesorios')">Productos Accesorios</a>
+    <a onclick="showSection('limitaciones')">Limitaciones en la Garantía</a>
+    <a onclick="showSection('garantias-implicitas')">Garantías Implícitas</a>
+    <a onclick="showSection('funcionamiento')">Funcionamiento de la Garantía</a>
+  </div>
+
+  <div class="content">
+    
+    <div class="section" id="garantia-limitada">
+        <h2>Garantía Limitada</h2>
+        <p>Hy Cite México S. de R.L. de C.V. (“Hy Cite México”) proporciona una Garantía Limitada (según se describe más adelante) a los productos de Hy Cite México adquiridos a través de un Distribuidor Autorizado. La cobertura de esta garantía es exclusivamente proporcionada al propietario original de los productos (ya sea que el producto haya sido comprado directamente o recibido como regalo). Asimismo, la cobertura de esta garantía solo puede ser transferida a miembros inmediatos de la familia y la misma quedará anulada si el producto es vendido o transferido a alguien distinto de la familia inmediata, o si fue comprado a través de un vendedor no autorizado.</p>
+      </div>
+      
+      <div class="section" id="cocina">
+        <h2>Sistemas de Cocina y Piezas Accesorias</h2>
+        <p>Hy Cite México garantiza que sus Sistemas de Cocina Royal Prestige®, Novel™ y las Piezas Accesorias, estarán libres de defectos de material y/o mano de obra, y no se mancharán ni oxidarán permanentemente, ni se derretirán, por 50 años a partir de la fecha de compra. </p>
+      </div>
+      
+      <div class="section" id="aros">
+        <h2>Aros Silicromáticos</h2>
+        <p>Hy Cite México garantiza que sus Aros Silicromáticos Royal Prestige® estarán libres de defectos de material y mano de obra durante 1 año a partir de la fecha de compra.</p>
+      </div>
+      
+      <div class="section" id="electrico">
+        <h2>Ollas y Sartenes Eléctricos</h2>
+        <p>Hy Cite México garantiza que sus Ollas y Sartenes Eléctricos Royal Prestige® (incluyendo el Royal Core™ de Royal Prestige®), con excepción de las partes eléctricas, estarán libres de defectos de material y mano de obra, y no se mancharán ni oxidarán permanentemente ni se derretirán, por 50 años a partir de la fecha de compra. Se garantiza que las partes eléctricas estarán libres de defectos de material y mano de obra durante 1 año a partir de la fecha de compra.</p>
+      </div>
+      
+      <div class="section" id="deluxe">
+        <h2>Deluxe Easy Release, incluyendo sus utensilios de cocina</h2>
+        <p>Hy Cite México garantiza que su sartén Royal Prestige® Deluxe Easy Release (excepto los aros silicromáticos), así como sus utensilios de concina estarán libres de defectos de material y mano de obra durante 5 años a partir de la fecha de compra. Daños, incluyendo el deterioro de la capacidad antiadherente, deformación, separación de metales, manchas, decoloración, los rayones, o la rotura del cristal producidos por no haberse seguido las instrucciones de usos y cuidados en relación con el sobrecalentamiento, choque térmico, caídas, uso de utensilios o detergentes abrasivos, o el uso del lavavajillas, están excluidos. Imperfecciones menores y variaciones de color no afectan el rendimiento y están excluidas. </p>
+      </div>
+      
+      <div class="section" id="perfect-pop">
+        <h2>Perfect Pop</h2>
+        <p>Hy Cite México garantiza que su Royal Prestige® Perfect Pop estará libre de defectos de material o mano de obra durante 3 años a partir de su compra.</p>
+      </div>
+      
+      <div class="section" id="smart-temp">
+        <h2>Smart Temp Surface Thermometer</h2>
+        <p>Hy Cite Mexico extiende una garantía integral de 2 años para Royal Prestige® Smart Temp Surface Thermometer, lo que refleja nuestro compromiso con la calidad y la satisfacción del cliente. Esta garantía cubre las partes mecánicas del Royal Prestige® Smart Temp Surface Thermometer, incluyendo la carcasa de acero inoxidable, el mecanismo de la esfera y la cúpula de cristal templado, asegurando que están libres de defectos en materiales y mano de obra bajo un uso doméstico regular. La garantía no cubre los daños causados por un uso indebido por parte del cliente, modificaciones no autorizadas, manipulación incorrecta o uso en condiciones que superen los límites de temperatura recomendados para el termómetro. También excluye los daños causados por factores ambientales no propicios para el uso previsto del termómetro. Las exclusiones específicas son las siguientes: uso o manipulación inadecuados, incluidas las mediciones en superficies que no sean de cocción o en entornos industriales; exposición a temperaturas superiores a las máximas nominales, lo que podría dañar la bobina bimetálica o la cúpula de cristal; daños por impactos físicos o caídas que afecten a la cúpula de cristal o a la carcasa; exposición a productos químicos agresivos o sustancias corrosivas; daños por agua o humedad excesiva, especialmente si la junta está deteriorada; manipulación incorrecta durante la limpieza con materiales abrasivos o productos de limpieza nocivos; modificaciones, reparaciones o desmontaje no autorizados. Durante el periodo de garantía, si se identifica un defecto en los componentes cubiertos y se presenta una reclamación válida, Hy Cite sustituirá los componentes defectuosos sin costo adicional para el cliente.</p>
+      </div>
+      
+      <div class="section" id="precision-cook">
+        <h2>Precision Cook Parrilla de Inducción</h2>
+        <p>Hy Cite México garantiza que su producto Precision Cook estará libre de defectos de materiales y mano de obra durante 1 año a partir de la fecha de compra.</p>
+      </div>
+      
+      <div class="section" id="olla-presion">
+        <h2>Olla de Presión y Piezas Accesorias</h2>
+        <p>Hy Cite México garantiza que su Olla de Presión y Piezas Accesorias Royal Prestige® (con excepción de las partes plásticas y elaro de silicona) estarán libres de defectos de material y mano de obra durante 50 años a partir de la fecha de compra. Se garantiza que las partes plásticas y el aro de silicona estarán libres de defectos de material y mano de obra durante 1 año a partir de la fecha de compra. </p>
+      </div>
+      
+      <div class="section" id="cuchillos">
+        <h2>Cuchillos, Afilador de Cuchillos, Bloque de Cuchillos todo en uno, Herramientas de Cocina y Cortador de Alimentos</h2>
+        <p>Hy Cite México garantiza que sus cuchillos, afilador de cuchillos, bloque de cuchillos, herramientas y cortador de alimentos estarán libres de defectos en materiales y mano de obra durante 50 años a partir de la fecha de compra. Las piezas de silicona, como los cabezales de las espátulas, tienen una garantía de 2 años a partir de la fecha de compra. Nota: Los cuchillos deberían poder mantener un filo cortante siempre que se utilicen correctamente y se afilen periódicamente de forma profesional o utilizando su Afilador de cuchillos.</p>
+      </div>
+      
+      <div class="section" id="bambu">
+        <h2>Productos de Bambú</h2>
+        <p>Hy Cite México garantiza que sus productos de bambú Royal Prestige® estarán libres de defectos de material y mano de obra durante 2 años a partir de la fecha de compra.</p>
+      </div>
+      
+      <div class="section" id="power-blender">
+        <h2>Power Blender MAX, Jarra de Tritan y Vaso Max</h2>
+        <p>Hy Cite México garantiza que la Power Blender MAX, Jarra de Tritan y Vaso Max (excepto por el presionador, el cable eléctrico desmontable y el aro de silicona) no presentará defectos en el material y la mano de obra durante 7 años a partir de la fecha de compra. El presionador y el cable eléctrico desmontable no presentarán defectos en el material y la mano de obra durante 2 años a partir de la fecha de compra. El aro de silicona no presentará defectos en el material y la mano de obra durante 1 año a partir de la fecha de compra. Los cambios en el color o la apariencia de la jarra no afectan el rendimiento.</p>
+      </div>
+      
+      <div class="section" id="power-blender-go">
+        <h2>Power Blender Go Plus</h2>
+        <p>Hy Cite México garantiza que su Power Blender Go Plus estará libre de defectos de fabricación o materiales durante 2 años a partir de la fecha de compra.</p>
+      </div>
+      
+      <div class="section" id="fresh-max">
+        <h2>Fresh MAX bomba de vacío</h2>
+        <p>Hy Cite México garantiza que su Fresh MAX estará libre de defectos de material y/o mano de obra durante 2 años a partir de la fecha de compra.</p>
+      </div>
+      
+      <div class="section" id="barista">
+        <h2>Barista</h2>
+        <p>Hy Cite México garantiza que su Royal Prestige® Barista estará libre de defectos de material y/omano de obra durante 50 años a partir de la fecha de compra. Las rayaduras, pequeñas imperfecciones y/o variaciones de color debidas al sobrecalentamiento, las caídas o el uso de utensilios de limpieza abrasivos no afectan al rendimiento y no están cubiertos por esta garantía.</p>
+      </div>
+      
+      <div class="section" id="baristart">
+        <h2>BaristArt Kit</h2>
+        <p>Hy Cite México garantiza que su Royal Prestige® BaristArt Kit estará libre de defectos de fabricación o materiales durante 1 año a partir de la fecha de compra.</p>
+      </div>
+      
+      <div class="section" id="expertea">
+        <h2>ExperTea</h2>
+        <p>Hy Cite México garantiza que su Royal Prestige® ExperTea estará libre de defectos de material y/omano de obra durante 50 años a partir de la fecha de compra. Las rayaduras, pequeñas imperfecciones y/o variaciones de color debidas al sobrecalentamiento, las caídas o el uso de utensilios de limpieza abrasivos no afectan al rendimiento y no están cubiertos por esta garantía.</p>
+      </div>
+      
+      <div class="section" id="cubiertos">
+        <h2>Cubiertos</h2>
+        <p>Hy Cite México garantiza que sus Cubiertos Royal Prestige® estarán libres de defectos de material o mano de obra, y no se romperán, derretirán ni mancharán permanentemente durante 50 años a partir de la fecha de compra.</p>
+      </div>
+      
+      <div class="section" id="vasos">
+        <h2>Vasos, Copas y Jarras</h2>
+        <p>Hy Cite México garantiza que sus Vasos, Copas y Jarras Royal Prestige® no se desportillarán, rayarán ni desteñirán durante 50 años a partir de la fecha de compra. Si a usted se le rompe alguna de estas piezas, puede obtener una de repuesto a 80.00 pesos cada una, para cubrir el costo de manejo y envío. Si las piezas de repuesto no están disponibles, puede hacer un intercambio pieza por pieza de su juego actual por un nuevo diseño de igual valor.</p>
+      </div>
+      
+      <div class="section" id="vajillas">
+        <h2>Vajillas</h2>
+        <p>Hy Cite México garantiza que su Vajilla Royal Prestige® no se desportillará durante 50 años a partir de la fecha de compra. Si cualquier pieza de su Vajilla se desportilla, puede obtener piezas de repuesto por $100.00 pesos cada una, para cubrir el costo de manejo y envío. Si su Vajilla se rompe, agrieta, raya o destiñe, puede obtener piezas de repuesto por 50% del precio sugerido al por menor. Si las piezas de repuesto no están disponibles, puede hacer un intercambio pieza por pieza de su juego actual por un nuevo diseño de igual valor.</p>
+      </div>
+      
+      <div class="section" id="tratamiento-agua">
+        <h2>Sistemas de Tratamiento de Agua</h2>
+        <p>Hy Cite México garantiza que la cubierta del filtro de sus Sistemas de Tratamiento de Agua FrescaPure Royal Prestige® estará libre de defectos de material o mano de obra durante 15 años a partir de la fecha de compra. Hy Cite México también garantiza que los cartuchos de sus Sistemas de Tratamiento de Agua Royal Prestige® no se taparán durante los 90 días posteriores a la entrega del producto. Nota: La presente garantía no cubre las piezas de mantenimiento de sus Sistemas de Tratamiento de Agua Royal Prestige® (válvula de desvío, las piezas de la manguera y los anillos de plástico en forma de “o”), no por razones relacionadas con defectos en dichas piezas, sino porque los minerales presentes en el agua podrían tapar las válvulas, y las sustancias químicas corrosivas del agua del grifo pueden causar que los anillos de plástico en forma de “o” y las mangueras se tornen quebradizos. Las piezas de mantenimiento pueden ser remplazadas a la mitad (50%) del precio actual de venta al por menor durante el período de 15 años durante el cual la garantía está en vigencia.</p>
+      </div>
+      
+      <div class="section" id="extractor-jugos">
+        <h2>Extractor de Jugos</h2>
+        <p>Hy Cite México garantiza que el motor de su Extractor de Jugos Royal Prestige® estará libre de defectos de material y mano de obra durante un período de 10 años a partir de la fecha de compra. Se garantiza que los otros componentes del Extractor estarán libres de defectos de material y mano de obra durante 2 años a partir de la fecha de compra</p>
+      </div>
+      
+      <div class="section" id="exprimidor-jugos">
+        <h2>Exprimidor de Jugos</h2>
+        <p>Hy Cite México garantiza que su Exprimidor de Jugos Royal Prestige®, incluyendo sus componentes, estará libre de defectos de material y mano de obra durante un período de 2 años a partir de la fecha de compra.</p>
+      </div>
+      
+      <div class="section" id="hornear">
+        <h2>Juego para Hornear de 7 Piezas</h2>
+        <p>Hy Cite México garantiza que su Juego para Hornear de 7 piezas Royal Prestige® estará libre de defectos de material o mano de obra, y no se oxidará, derretirá, romperá, agrietará ni manchará permanentemente durante 50 años a partir de la fecha de compra.</p>
+      </div>
+      
+      <div class="section" id="plancha">
+        <h2>Plancha Doble de Porcelana con Núcleo de Hierro</h2>
+        <p>Hy Cite México garantiza que su Plancha Doble de Porcelana Royal Prestige® estará libre de defectos de material y mano de obra, y no se derretirá, agrietará ni manchará permanentemente durante 1 año a partir de la fecha de compra.</p>
+      </div>
+      
+      <div class="section" id="utensilios">
+        <h2>Juego de Utensilios de Cocina</h2>
+        <p>Hy Cite México garantiza que su Juego de Utensilios de Cocina Royal Prestige® estará libre de defectos de material o mano de obra durante un período de 1 año a partir de la fecha de compra.</p>
+      </div>
+      
+      <div class="section" id="filtracion-aire">
+        <h2>Sistemas de Filtración de Aire</h2>
+        <p>Hy Cite México garantiza que su Sistema de Filtración de Aire Royal Prestige®, incluyendo sus componentes, estará libre de defectos de material y mano de obra durante 1 año a partir de la fecha de compra. </p>
+      </div>
+      
+      <div class="section" id="redi-temp">
+        <h2>Redi-Temp E-System</h2>
+        <p>Hy Cite México garantiza que su Redi-Temp E-System estará libre de defectos de material y mano de obra durante 1 año a partir de la fecha de compra (excepto las baterías de los e-Valves).</p>
+      </div>
+      
+      <div class="section" id="accesorios">
+        <h2>Productos Accesorios</h2>
+        <p>Hy Cite México garantiza que los productos accesorios (incluyendo los tazones para mezclar, tazas con pared doble para café, el juego de azucarera y jarro para leche, etc.) que no son parte de la línea Royal Prestige® Precision Series estarán libres de defectos de material o mano de obra durante un periodo de 1 año a partir de la fecha de compra.</p>
+      </div>
+      
+      <div class="section" id="limitaciones">
+        <h2>Limitaciones y excepciones en la cobertura de la garantía</h2>
+        <p>Las garantías de Hy Cite México sólo cubren el uso doméstico normal, por lo tanto, las garantías quedarán anuladas y canceladas, si el producto ha sido dañado por mal uso, negligencia o accidente; cuando el producto ha sido utilizado en condiciones distintas a las normales; por ensamblaje, mantenimiento o servicio inapropiados; cuando el producto no hubiese sido operado de acuerdo con el instructivo de uso que se acompaña al mismo; cuando el producto hubiese sido alterado o reparado por personas no autorizadas por el fabricante nacional, Hy Cite, importador o comercializador responsable respectivo; o no se hayan cumplido con las condiciones de mantenimiento respectivas.</p>
+      </div>
+      
+      <div class="section" id="garantias-implicitas">
+        <h2>Garantías Implícitas</h2>
+        <p>LA DURACIÓN DE CUALQUIER GARANTÍA IMPLÍCITA QUE EL COMPRADOR PUDIESE TENER ESTÁ LIMITADA AL MISMO PERÍODO DE TIEMPO DESCRITO EN LA GARANTÍA ESCRITA ESPECIFICADA ANTERIORMENTE PARA EL PRODUCTO BAJO COBERTURA. </p>
+      </div>
+      
+      <div class="section" id="funcionamiento">
+        <h2>Funcionamiento de la Garantía</h2>
+        <p>Si el producto cubierto cumple con nuestra garantía señalada para cada uno de los productos dentro del término específico establecido, el mismo deberá ser enviado a Hy Cite México según los datos señalados más adelante (sección “Devolución de Productos”), solicitando se haga efectiva la garantía bajo los términos aquí señalados. Hy Cite México a su entera discreción podrá decidir si repararlo o remplazarlo por otro producto igual o similar que cumpla con las características especificadas en esta garantía. En caso de que el producto correspondiente ya no se encuentre a la venta, o a discreción de Hy Cite México, este podrá remplazar el producto con cualquier otro equivalente, o con uno que incorpore una nueva tecnología o diseño. Para hacer efectiva su garantía, deberá enviar con el producto copia de la presente póliza, así como de la “Planilla de Envío” que se adjuntó a esta Garantía Limitada y a los productos adquiridos, la cual hace las veces de comprobante y establece los datos específicos de los productos adquiridos.</p>
+      </div>
+        
+    </div>  
+
+  <script>
+    document.querySelectorAll('.section h2').forEach(item => {
+      item.addEventListener('click', () => {
+        const parent = item.parentElement;
+        parent.classList.toggle('active');
+      });
+    });
+
+    function showSection(sectionId) {
+      
+      document.querySelectorAll('.section').forEach(section => {
+        section.style.display = 'none';
+      });
+
+      
+      const selectedSection = document.getElementById(sectionId);
+      if (selectedSection) {
+        selectedSection.style.display = 'block';
+      }
+    }
+  </script>
+
+</body>
+</html>

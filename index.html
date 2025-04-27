@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Cabin&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Corporativo de Valle</title>
+    <style>
+        body {
+            font-family: 'Cabin', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f6f8;
+            color: #276aa5;
+        }
+
+        .header-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background-image: url('header.jpg'); 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: white;
+    position: relative;
+    z-index: 1;
+}
+
+.header-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5); 
+    z-index: 0; 
+}
+
+.header-container * {
+    position: relative;
+    z-index: 1; 
+}
+
+        .logo-container {
+            width: 100px;
+            height: 100px;
+            background-color: white;
+            border-radius: 50%;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: growAndSpin 10s infinite;
+            margin-bottom: 10px;
+        }
+        .logo-container img {
+            width: 80%;
+            height: 80%;
+            border-radius: 50%;
+        }
+        header {
+            font-size: 36px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            opacity: 0;
+            animation: revealTitle 10s infinite;
+            animation-delay: 5s;
+        }
+        .slogan {
+            font-family: 'Poppins', sans-serif;
+            font-size: 18px;
+            color: #ffffff;
+            font-weight: 500;
+            margin-top: 10px;
+            opacity: 1;
+        }
+        @keyframes growAndSpin {
+            0% {
+                transform: scale(1) rotate(0deg);
+            }
+            50% {
+                transform: scale(2) rotate(180deg);
+            }
+            100% {
+                transform: scale(1) rotate(360deg);
+            }
+        }
+        @keyframes revealTitle {
+            0% {
+                opacity: 0;
+            }
+            50% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0;
+            }
+        }
+        nav {
+            text-align: center;
+            background-color: #BBDEFB;
+            padding: 15px;
+        }
+        nav a {
+            color: #1E88E5;
+            text-decoration: none;
+            font-size: 18px;
+            margin: 0 20px;
+            text-transform: uppercase;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        .welcome-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    gap: 20px;
+}
+
+.image-container {
+    width: 20%;  
+}
+
+.image-container img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.text-container {
+    width: 30%;
+    text-align: center;
+}
+
+.text-container h3 {
+    font-size: 36px;
+    font-weight: 700;
+    color: #276aa5;
+    margin-bottom: 20px;
+}
+
+.text-container p {
+    font-size: 20px;
+    color: #555;
+    margin-bottom: 30px;
+}
+
+.video-container {
+    width: 50%;  
+}
+
+video {
+    width: 100%;
+    border-radius: 10px;
+}
+
+        .welcome-card h3 {
+            font-size: 36px;
+            font-weight: 700;
+            color: #276aa5;
+            margin-bottom: 20px;
+        }
+
+        .welcome-card p {
+            font-size: 20px;
+            color: #555;
+            margin-bottom: 30px;
+        }
+
+        .cta-button {
+        background-color: #1E88E5;
+        color: white;
+        padding: 15px 30px; 
+        text-decoration: none;
+        border-radius: 50px; 
+        font-size: 18px;
+        font-weight: 600;
+        display: inline-block;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); 
+    }
+
+    .cta-button:hover {
+        background-color: #276aa5;
+        transform: translateY(-5px); 
+    }
+
+    .cta-button:active {
+        transform: translateY(0);
+    }
+
+        .cards-container {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            padding: 30px 20px;
+            overflow-x: auto;
+        }
+
+        .card {
+            background-color: white;
+            width: 300px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+        }
+
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px 10px 0 0;
+        }
+
+        .card-title {
+            padding: 15px;
+            background-color: #BBDEFB;
+            font-size: 22px;
+            font-weight: 700;
+            color: #1E88E5;
+            text-align: center;
+        }
+
+        .card-description {
+            display: none;
+            padding: 15px;
+            font-size: 16px;
+            color: #555;
+            text-align: center;
+            background-color: #f9f9f9;
+            border-radius: 0 0 10px 10px;
+        }
+
+        .card.active .card-description {
+            display: block;
+        }
+
+        footer {
+            background-color: #1E88E5;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+        }
+
+.botones-menu {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+    margin-top: 10px;  
+    margin-bottom: 20px;
+}
+
+
+.boton {
+    display: inline-block;
+    text-decoration: none; 
+    text-align: center;
+    font-family: 'Cabin', sans-serif;
+    padding: 12px 25px;
+    font-size: 18px; 
+    color: #276aa5; 
+    background-color: transparent; 
+    border: 2px solid #276aa5;
+    border-radius: 30px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: color 0.3s ease, border-color 0.3s ease;
+}
+
+.boton::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 0%;
+    height: 100%;
+    background-color: #276aa5;
+    z-index: -1;
+    transition: width 0.3s ease;
+}
+
+.boton:hover::before {
+    width: 100%;
+}
+
+.boton:hover {
+    color: rgb(255, 255, 255); 
+    border-color: #276aa5;
+}
+
+.card-description a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.card-description a:hover {
+    text-decoration: underline;
+}
+.btn-descubre {
+    display: inline-block;
+    text-decoration: none; 
+    text-align: center;
+    font-family: 'Cabin', sans-serif;
+    padding: 12px 25px;
+    font-size: 18px;
+    color: #276aa5; 
+    background-color: transparent; 
+    border: 2px solid #276aa5; 
+    border-radius: 30px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: color 0.3s ease, border-color 0.3s ease;
+}
+
+.btn-descubre::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 0%;
+    height: 100%;
+    background-color: #276aa5; 
+    z-index: -1;
+    transition: width 0.3s ease;
+}
+
+.btn-descubre:hover::before {
+    width: 100%;
+}
+
+.btn-descubre:hover {
+    color: white; 
+    border-color: #276aa5;
+}
+
+    </style>
+</head>
+<body>
+    <div class="header-container">
+        <div class="logo-container">
+            <img src="cdv.jpg" alt="Logo">
+        </div>
+        <header>
+            Somos distribuidores Autorizados
+        </header>
+        <div class="slogan">
+            <span>¡CON ROYAL PRESTIGE COCINA DE MANERA RÁPIDA, INTELIGENTE Y SALUDABLE!</span>
+        </div>
+    </div>
+
+    <div class="botones-menu">
+        <a class="boton" href="origen.html">Origen</a>
+        <a class="boton" href="certificaciones.html">Certificaciones</a>
+        <a class="boton" href="garantias.html">Garantías</a>
+        <a class="boton" href="catalogo.html">Catálogo de Productos</a>
+        <a class="boton" href="cocinados.html">Algunos Cocinados</a>
+        <a class="boton" href="cualessonlosb.html">Beneficios de ser cliente</a>
+    </div>
+    
+    
+
+    <div class="welcome-card">
+        <div class="image-container">
+            <img src="bienvenida.jpg" alt="Imagen de bienvenida">
+        </div>
+        <div class="text-container">
+            <h3>Bienvenid@</h3>
+            <p>Somos distribuidores autorizados de la marca Royal Prestige con experiencia y atención a personas que quieren un cambio en sus vidas. Te compartimos una manera única de llevar la alimentación de tu familia a otro nivel con la gama de los productos de Royal Prestige.</p>
+            <a href="https://forms.gle/VcfDN6xMAN8ny9MGA" class="cta-button" target="_blank">Solicitar una Demostración</a>
+
+        </div>
+        <div class="video-container">
+            <video autoplay muted controls>
+                <source src="Royal Prestige.mp4" type="video/mp4">
+                Tu navegador no soporta el video.
+            </video>
+        </div>
+    </div>
+    
+
+    <div class="cards-container">
+
+        <div class="card" onclick="toggleCard(this)">
+            <img src="vision-mision.jpg" alt="Visión y Misión">
+            <div class="card-title">Visión y Misión</div>
+            <div class="card-description">
+                <p>Creemos en el beneficio del trabajo en equipo. Ponemos al servicio del pais alternativas para el cuidado de la salud, perseguimosla intención de lograr miles de empleos, y lograr que nuestros colaboradores tengan una vida plena, con crecimiento personal, económico, y gran Impacto social, que el éxito sea por añadidura, el resultado de su esfuerzo y valores firmes.</p>
+            </div>
+        </div>
+
+        <div class="card" onclick="toggleCard(this)">
+            <img src="unicos.jpg" alt="Lo que nos hace únicos">
+            <div class="card-title">Lo que nos hace Únicos</div>
+            <div class="card-description">
+                <p>Descubre los valores que nos distinguen y cómo nos esforzamos por ofrecer lo mejor a nuestros clientes en cada detalle.</p>
+                <a href="unicos.html" class="btn-descubre">Descubre Más</a> 
+            </div>
+        </div>
+
+        <div class="card" onclick="toggleCard(this)">
+  <img src="contacto.jpg" alt="Contacto">
+  <div class="card-title">Contáctanos</div>
+  <div class="card-description">
+    <div class="info-carousel">
+      <div class="info-slide active">
+        Si tienes alguna pregunta, escríbenos al WhatsApp:<br>
+        📍 Centro de México: <br>
+        <a href="https://wa.me/7121635327" target="_blank"></a><br>
+        <span class="whatsapp-msg">
+                    <a href="https://wa.me/7121635327" target="_blank">wa.me/7121635327</a>
+        </span>
+      </div>
+      <div class="info-slide">
+        📍 Norte de México: <br>
+        <a href="https://wa.me/8781553558" target="_blank"></a><br>
+        <span class="whatsapp-msg">
+                  <a href="https://wa.me/8781553558" target="_blank">wa.me/8781553558</a>
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+        
+        <div class="card" onclick="toggleCard(this)">
+            <img src="royal.jpg" alt="Royal Prstige México">
+            <div class="card-title">Royal Prestige México</div>
+            <div class="card-description">
+                <p> Página Oficial: </p>
+                <p>
+                    <a href="https://www.royalprestige.com/mx/productos/mas-vendidos" target="_blank">
+                        https://www.royalprestige.com/mx/productos/mas-vendidos
+                    </a>
+                </p>
+            </div>             
+        
+    
+    <script>
+        function toggleCard(card) {
+            card.classList.toggle('active');
+        }
+    </script>
+<!-- Modal -->
+<div id="modalFormulario" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background-color:rgba(0,0,0,0.6); z-index:9999; justify-content:center; align-items:center;">
+    <div style="background-color:#fff; width:90%; max-width:800px; height:90%; border-radius:15px; overflow:hidden; position:relative; box-shadow:0 0 20px rgba(0,0,0,0.3);">
+        <span onclick="cerrarModal()" style="position:absolute; top:10px; right:20px; font-size:24px; font-weight:bold; cursor:pointer; color:#276aa5;">&times;</span>
+        <iframe src="https://forms.gle/VcfDN6xMAN8ny9MGA" width="100%" height="100%" frameborder="0" style="border: none;"></iframe>
+    </div>
+</div>
+<script>
+    function abrirModal() {
+        document.getElementById("modalFormulario").style.display = "flex";
+    }
+
+    function cerrarModal() {
+        document.getElementById("modalFormulario").style.display = "none";
+    }
+
+    
+    window.onclick = function(event) {
+        var modal = document.getElementById("modalFormulario");
+        if (event.target == modal) {
+            cerrarModal();
+        }
+    }
+</script>
+
+</body>
+</html>
