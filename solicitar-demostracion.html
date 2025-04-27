@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solicitar Demostración</title>
+    <style>
+        body {
+            font-family: 'Cabin', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f6f8;
+            color: #276aa5;
+        }
+
+       
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .modal-content {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            width: 80%;
+            max-width: 600px;
+        }
+
+        .close-btn {
+            color: #276aa5;
+            font-size: 28px;
+            font-weight: bold;
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            cursor: pointer;
+        }
+
+        .modal iframe {
+            width: 100%;
+            height: 500px;
+            border: none;
+        }
+
+        .cta-button {
+            background-color: #1E88E5;
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 18px;
+            font-weight: 600;
+            display: inline-block;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background-color: #276aa5;
+            transform: translateY(-5px);
+        }
+
+    </style>
+</head>
+<body>
+    <div class="modal" id="modal-demostracion">
+        <div class="modal-content">
+            <span class="close-btn" onclick="cerrarModal()">×</span>
+            <iframe src="https://forms.gle/VcfDN6xMAN8ny9MGA" title="Formulario de solicitud de demostración"></iframe>
+        </div>
+    </div>
+
+    <div style="text-align: center; padding: 50px;">
+        <a href="#" class="cta-button" onclick="abrirModal()">Solicitar una Demostración</a>
+    </div>
+
+    <script>
+        function abrirModal() {
+            document.getElementById("modal-demostracion").style.display = "flex";
+        }
+
+        function cerrarModal() {
+            document.getElementById("modal-demostracion").style.display = "none";
+        }
+    </script>
+</body>
+</html>
